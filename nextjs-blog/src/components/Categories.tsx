@@ -1,21 +1,14 @@
 import React from "react";
 import Category from "./Category";
 
-const Categories = () => {
+const Categories = ({ categories }: { categories: any }) => {
   return (
     <div className="flex gap-6 mb-8 ">
-      <div>
-        <Category />
-      </div>
-      <div>
-        <Category />
-      </div>
-      <div>
-        <Category />
-      </div>
-      <div>
-        <Category />
-      </div>
+      {categories?.data?.map((category: any) => (
+        <div key={category.id}>
+          <Category cat={category} />
+        </div>
+      ))}
     </div>
   );
 };
