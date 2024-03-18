@@ -6,11 +6,16 @@ async function fetchCategories() {
   const options = {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+      
     },
+    cache: "no-store",
   };
 
   try {
-    const res = await fetch("http://127.0.0.1:1337/api/categories", options);
+    const res = await fetch("http://127.0.0.1:1337/api/categories", {
+      ...options,
+      cache: 'no-store',
+    });
     const response = await res.json();
     return response;
   } catch (error) {
