@@ -36,7 +36,7 @@ const page = async ({ params }: any) => {
           width={900}
           height={300}
           layout="fill "
-          objectFit="cover"
+          // objectFit="cover"
           src={imageUrl}
           alt=""
           className="rounded-t-lg"
