@@ -1,12 +1,10 @@
 import Blogs from "@/components/Blogs";
 import Categories from "@/components/Categories";
-import { headers } from "next/headers";
 
 async function fetchCategories() {
   const options = {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-      
     },
     cache: "no-store",
   };
@@ -14,7 +12,7 @@ async function fetchCategories() {
   try {
     const res = await fetch("http://127.0.0.1:1337/api/categories", {
       ...options,
-      cache: 'no-store',
+      cache: "no-store",
     });
     const response = await res.json();
     return response;

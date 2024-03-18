@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import {CategoryProvider} from "@/context/CategoryContext";
+import { CategoryProvider } from "@/context/CategoryContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +20,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="mx-auto  max-w-screen-lg">
           <CategoryProvider>
-          <div className="flex min-h-screen flex-col items-center p-24">
-            {children}
-          </div>
+            <div className="flex min-h-screen flex-col items-center p-24">
+              {children}
+              <footer className="text-center text-gray-500 mt-4">
+                <h1>
+                  Made with <span className="text-red-500">♥️</span> anoob
+                </h1>
+              </footer>
+            </div>
           </CategoryProvider>
-         
         </div>
       </body>
     </html>

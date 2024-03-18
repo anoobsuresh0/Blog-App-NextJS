@@ -8,18 +8,21 @@ const BlogCard = ({ blg }: any) => {
     blg.attributes.Description.length > 80
       ? blg.attributes.Description.substring(0, 80) + "..."
       : blg.attributes.Description;
+  const truncateBlogTitle =
+    blg.attributes.Title.length > 30
+      ? blg.attributes.Title.substring(0, 80) + "..."
+      : blg.attributes.Title;
 
   const imageUrl =
     "http://127.0.0.1:1337" + blg.attributes.Img.data.attributes.url;
 
   return (
-    <div className="rounded-lg shadow-md p-4 mb-4 overflow-hidden border border-gray-600 cursor-pointer">
+    <div className="rounded-lg  h-[400px] shadow-md p-4 mb-4 overflow-hidden border border-gray-600 cursor-pointer">
       <Link href={`/blog/${blg.id}`}>
         <div>
           <Image
             width={900}
             height={300}
-            layout="fill "
             objectFit="cover"
             src={imageUrl}
             alt=""
@@ -28,7 +31,7 @@ const BlogCard = ({ blg }: any) => {
         </div>
         <div className="p-2">
           <h2 className="text-xl font-semibold mb-2 overflow-ellipsis">
-            {blg.attributes.Title}
+            {truncateBlogTitle}
           </h2>
           <p className="text-gray-600">{truncateBlogDesc}</p>
         </div>
